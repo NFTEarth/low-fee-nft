@@ -48,7 +48,7 @@ export default function Home() {
   const contractQuery = useContract(contractAddress);
   const contractMetadata = useContractMetadata(contractQuery.contract);
   const { toast } = useToast();
-  const theme = (urlParams.get("theme") || themeConst || "light") as
+  const theme = (urlParams.get("theme") || themeConst || "dark") as
     | "light"
     | "dark";
   const root = window.document.documentElement;
