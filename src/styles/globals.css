@@ -32,6 +32,8 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: url("/src/bg.jpeg") #1D1D1D;
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 a {
