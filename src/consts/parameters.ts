@@ -15,7 +15,7 @@ export const chainConst = "arbitrum";
 export const clientIdConst = "2d0219355d330314c40d3e136b73c278";
 
 // Configure the primary color for buttons and other UI elements
-export const primaryColorConst = "blue";
+export const primaryColorConst = "#b287ff";
 
 // Choose between "light" and "dark" mode
 export const themeConst = "dark";

@@ -13,19 +13,19 @@ import {
   useUnclaimedNFTSupply,
   Web3Button,
 } from "@thirdweb-dev/react";
-import { BigNumber, utils } from "ethers";
-import { useMemo, useState } from "react";
-import { HeadingImage } from "./components/HeadingImage";
-import { PoweredBy } from "./components/PoweredBy";
-import { useToast } from "./components/ui/use-toast";
-import { parseIneligibility } from "./utils/parseIneligibility";
+import {BigNumber, utils} from "ethers";
+import {useMemo, useState} from "react";
+import {HeadingImage} from "./components/HeadingImage";
+import {PoweredBy} from "./components/PoweredBy";
+import {useToast} from "./components/ui/use-toast";
+import {parseIneligibility} from "./utils/parseIneligibility";
 import {
   clientIdConst,
   contractConst,
   primaryColorConst,
   themeConst,
 } from "./consts/parameters";
-import { ContractWrapper } from "@thirdweb-dev/sdk/dist/declarations/src/evm/core/classes/contract-wrapper";
+import {ContractWrapper} from "@thirdweb-dev/sdk/dist/declarations/src/evm/core/classes/contract-wrapper";
 
 const urlParams = new URL(window.location.toString()).searchParams;
 const contractAddress = urlParams.get("contract") || contractConst || "";
@@ -47,7 +47,7 @@ const colors = {
 export default function Home() {
   const contractQuery = useContract(contractAddress);
   const contractMetadata = useContractMetadata(contractQuery.contract);
-  const { toast } = useToast();
+  const {toast} = useToast();
   const theme = (urlParams.get("theme") || themeConst || "dark") as
     | "light"
     | "dark";
@@ -70,7 +70,7 @@ export default function Home() {
   );
   const unclaimedSupply = useUnclaimedNFTSupply(contractQuery.contract);
   const claimedSupply = useClaimedNFTSupply(contractQuery.contract);
-  const { data: firstNft, isLoading: firstNftLoading } = useNFT(
+  const {data: firstNft, isLoading: firstNftLoading} = useNFT(
     contractQuery.contract,
     0,
   );
@@ -297,32 +297,26 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen min-h-screen">
-      <ConnectWallet className="!absolute !right-4 !top-4" theme={theme} />
+    <div className="w-screen min-h-screen py-4 lg:py-0">
       <div className="grid h-screen grid-cols-1 lg:grid-cols-12">
-        <div className="items-center justify-center hidden w-full h-full lg:col-span-5 lg:flex lg:px-12">
-          <HeadingImage
-            src={contractMetadata.data?.image || firstNft?.metadata.image || ""}
-            isLoading={isLoading}
-          />
-        </div>
-        <div className="flex items-center justify-center w-full h-full col-span-1 lg:col-span-7">
-          <div className="flex flex-col w-full max-w-xl gap-4 p-12 rounded-xl lg:border lg:border-gray-400 lg:dark:border-gray-800">
-            <div className="flex w-full mt-8 xs:mb-8 xs:mt-0 lg:hidden">
+        <div className="flex items-center justify-center w-full h-full lg:col-span-12" >
+          <div
+            className="flex flex-col w-full max-w-xl gap-4 p-12 rounded-xl lg:border lg:border-gray-400 lg:dark:border-gray-800 bg-zinc-900 border-purple-400 border-4">
+            <div className="flex w-full mt-8 xs:mb-8 xs:mt-0">
               <HeadingImage
                 src={contractMetadata.data?.image || firstNft?.metadata.image || ""}
                 isLoading={isLoading}
               />
             </div>
 
-            <div className="flex flex-col gap-2 xs:gap-4">
+            <div className="flex flex-col gap-2 xs:gap-4 text-center" >
               {isLoading ? (
                 <div
                   role="status"
                   className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
                 >
                   <div className="w-full">
-                    <div className="w-24 h-10 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    <div className="w-24 h-10 bg-gray-200 rounded-full dark:bg-gray-700"/>
                   </div>
                 </div>
               ) : isOpenEdition ? null : (
@@ -342,7 +336,7 @@ export default function Home() {
                     className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
                   >
                     <div className="w-full">
-                      <div className="w-48 h-8 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                      <div className="w-48 h-8 bg-gray-200 rounded-full dark:bg-gray-700"/>
                     </div>
                     <span className="sr-only">Loading...</span>
                   </div>
@@ -351,16 +345,16 @@ export default function Home() {
                 )}
               </h1>
               {contractMetadata.data?.description ||
-                contractMetadata.isLoading ? (
-                  <div className="text-gray-500 line-clamp-2">
+              contractMetadata.isLoading ? (
+                <div className="text-gray-500 line-clamp-2">
                   {contractMetadata.isLoading ? (
                     <div
                       role="status"
-                        className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
+                      className="space-y-8 animate-pulse md:flex md:items-center md:space-x-8 md:space-y-0"
                     >
                       <div className="w-full">
-                        <div className="mb-2.5 h-2 max-w-[480px] rounded-full bg-gray-200 dark:bg-gray-700"></div>
-                        <div className="mb-2.5 h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                        <div className="mb-2.5 h-2 max-w-[480px] rounded-full bg-gray-200 dark:bg-gray-700"/>
+                        <div className="mb-2.5 h-2 rounded-full bg-gray-200 dark:bg-gray-700"/>
                       </div>
                       <span className="sr-only">Loading...</span>
                     </div>
@@ -370,7 +364,7 @@ export default function Home() {
                 </div>
               ) : null}
             </div>
-            <div className="flex w-full gap-4">
+            <div className="flex w-full gap-4" >
               {dropNotReady ? (
                 <span className="text-red-500">
                   This drop is not ready to be minted yet. (No claim condition
@@ -381,9 +375,11 @@ export default function Home() {
                   Drop is starting soon. Please check back later.
                 </span>
               ) : (
-                    <div className="flex flex-col w-full gap-4">
-                      <div className="flex flex-col w-full gap-4 lg:flex-row lg:items-center lg:gap-4 ">
-                        <div className="flex w-full px-2 border border-gray-400 rounded-lg h-11 dark:border-gray-800 md:w-full">
+                <div className="flex flex-col w-full gap-4" >
+                  <div className="flex flex-col w-full gap-4 lg:flex-row lg:items-center lg:gap-4 ">
+                    <div
+                      className="flex w-full px-2 border border-purple-400 rounded-lg h-11 dark:border-gray-800 md:w-full"
+                    >
                       <button
                         onClick={() => {
                           const value = quantity - 1;
@@ -395,12 +391,13 @@ export default function Home() {
                             setQuantity(value);
                           }
                         }}
-                            className="flex items-center justify-center h-full px-2 text-2xl text-center rounded-l-md disabled:cursor-not-allowed disabled:text-gray-500 dark:text-white dark:disabled:text-gray-600"
+                        className="flex items-center justify-center h-full px-2 text-2xl text-center rounded-l-md disabled:cursor-not-allowed disabled:text-gray-500 dark:text-white dark:disabled:text-gray-600"
                         disabled={isSoldOut || quantity - 1 < 1}
                       >
                         -
                       </button>
-                          <p className="flex items-center justify-center w-full h-full font-mono text-center dark:text-white lg:w-full">
+                      <p
+                        className="flex items-center justify-center w-full h-full font-mono text-center dark:text-white lg:w-full">
                         {!isLoading && isSoldOut ? "Sold Out" : quantity}
                       </p>
                       <button
@@ -437,7 +434,7 @@ export default function Home() {
                       isDisabled={!canClaim || buttonLoading}
                       onError={(err) => {
                         console.error(err);
-                        console.log({ err });
+                        console.log({err});
                         toast({
                           title: "Failed to mint drop",
                           description: (err as any).reason || "",
@@ -459,7 +456,7 @@ export default function Home() {
                         <div role="status">
                           <svg
                             aria-hidden="true"
-                                className="w-4 h-4 mr-2 text-gray-200 animate-spin fill-blue-600 dark:text-gray-600"
+                            className="w-4 h-4 mr-2 text-gray-200 animate-spin fill-blue-600 dark:text-gray-600"
                             viewBox="0 0 100 101"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -486,7 +483,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <PoweredBy />
+      <PoweredBy/>
     </div>
   );
 }
