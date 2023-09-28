@@ -2,9 +2,10 @@
 
 Mint your NFT from the collection, `LowFeeNFT` and show your support for the NFT ecosystem on Arbitrum! 
 
-Mint at: [LowFeeNFT](https://lowfeenft.nftearth.exchange)
+Mint at: [LowFeeNFT](https://nftearth.exchange/lowfeenft)
 
-![image](https://github.com/NFTEarth/low-fee-nft/assets/29180454/d4dae86e-af92-4b41-859e-4f9e7fe80f07)
+![image](https://github.com/NFTEarth/low-fee-nft/assets/29180454/d40fd828-e3bf-47e0-a472-2b78e3cdf17d)
+
 
 View the NFT contract on [Arbiscan here:](https://arbiscan.io/address/0x010292d6de92d4fbcc110f277f55c143c023d723)
 
