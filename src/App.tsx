@@ -297,7 +297,7 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen min-h-screen py-4 lg:py-0">
+    <div className="w-screen min-h-screen">
       <div className="grid h-screen grid-cols-1 lg:grid-cols-12">
         <div className="flex items-center justify-center w-full h-full lg:col-span-12" >
           <div
