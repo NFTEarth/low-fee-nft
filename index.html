@@ -9,8 +9,15 @@
     />
 
     <title>LowFeeNFT</title>
+    <script>
+      function check_frame() {
+        if( top === self ) { // not in a frame
+          location.href = "https://nftearth.exchange/lowfeenft"; // either the frameset or an error.
+        }
+      }
+    </script>
   </head>
-  <body>
+  <body onload="check_frame()">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
